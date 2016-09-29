@@ -1,0 +1,29 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #fff;
+}
+
+.form-inscription{
+  max-width: 555px;
+  padding: 15px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 1px 1px 9px #888888;
+}
+
+.form-inscription .form-control {
+  position: relative;
+  height: auto;
+  padding: 10px;
+  margin-bottom:10px;
+  font-size: 16px;
+}
+
+
+.form-inscription .insc-info{
+	margin: 15px 0;
+	padding:15px 15px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
