@@ -9,7 +9,7 @@
 
 
  <bean id="dao" class="com.org.daoImp.ImpDaoClient"></bean>
- <bean id="metier" class="com.org.ImpMetierClient.ImpMetierClient">
+ <bean id="metier" class="com.org.MetierImp.ImpMetierClient">
    <property name="dao" ref="dao"></property>
  </bean>
  
@@ -33,7 +33,6 @@
  
  
  <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
- 
    <property name="persistenceUnitManager" ref="persistenceUnitManager"></property>
    <property name="persistenceUnitName" value="My_Unit_Persist"></property>
  </bean>

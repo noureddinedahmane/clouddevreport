@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Client implements Serializable{
     
@@ -14,10 +16,17 @@ public class Client implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idClient;
 	
+	@NotEmpty(message="Please Enter Your Name")
 	private String name;
+	
 	private String prenom;
-	private String email;
-	private String passWord;
+	
+	@NotEmpty(message="Please Enter Your Adresse Email")
+	private String username;
+	
+	@NotEmpty(message="Please Enter Your PassWord")
+	private String password;
+	
 	private Date dateNaissance;
 	
 	public Long getIdClient() {
@@ -38,18 +47,7 @@ public class Client implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getPassWord() {
-		return passWord;
-	}
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
-	}
+	
 	public Date getDateNaissance() {
 		return dateNaissance;
 	}
@@ -57,20 +55,35 @@ public class Client implements Serializable{
 		this.dateNaissance = dateNaissance;
 	}
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+	
 	public Client() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Client(String name, String prenom, String email, String passWord,
+	public Client(String name, String prenom, String username, String password,
 			Date dateNaissance) {
 		super();
 		this.name = name;
 		this.prenom = prenom;
-		this.email = email;
-		this.passWord = passWord;
+		this.username = username;
+		this.password = password;
 		this.dateNaissance = dateNaissance;
 	}
-	
+
 	
 	
 }

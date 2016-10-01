@@ -1,5 +1,8 @@
-package com.org.ImpMetierClient;
+package com.org.MetierImp;
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
+
 import com.org.daoInter.IDaoClient;
 import com.org.entities.Client;
 import com.org.metierInter.IMetierClient;
@@ -15,8 +18,27 @@ public class ImpMetierClient implements IMetierClient {
 
 	@Override
 	public Client addClient(Client client) {
-		// TODO Auto-generated method stub
 		return dao.addClient(client);
+	}
+
+	@Override
+	public Client getClient(Long id) {
+		return dao.getClient(id);
+	}
+
+	@Override
+	public void deleteClient(Long id) {
+		dao.deleteClient(id);
+	}
+
+	@Override
+	public Client updateClient(Client client) {
+		return dao.updateClient(client);
+	}
+
+	@Override
+	public List<Client> listAllClients() {
+		return dao.listAllClients();
 	}
 
 }

@@ -9,17 +9,21 @@
 	        
 	        <form-login
 		         login-page="/login"
-		         default-target-url="/index"
-                 authentication-failure-url="/index"
+		         default-target-url="/inscription"
+                 authentication-failure-url="/inscription"
 		     />
 	
 	</http>
 	
 	<authentication-manager>
 	  <authentication-provider>
+	  
+	     <jdbc-user-service data-source-ref="dataSource" users-by-username-query="select username, password from client where username=?" />
+	     <!--  
 	     	<user-service>
 		      <user name="noureddine" password="alter6+" authorities="ROLE_ADMIN" />
 	        </user-service>
+	      --> 
 	  </authentication-provider>
 	</authentication-manager>
 

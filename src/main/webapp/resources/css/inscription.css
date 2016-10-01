@@ -27,3 +27,9 @@ body {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
+
+
+.errors{
+	color:red;
+	font-size: 12px;
+}

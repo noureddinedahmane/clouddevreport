@@ -1,4 +1,4 @@
-package com.org.loginmodule;
+package com.org.contoller;
 
 import java.util.Locale;
 
@@ -29,29 +29,9 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String home(Model model) {
 		
-		metier.addClient(new Client());
 		return "login";
 	}
 	
-	
-	
-	/**
-	 * redirection to inscription page
-	 */
-	@RequestMapping(value = "/inscription", method = RequestMethod.GET)
-	public String inscription(Model model) {
-		
-		return "inscription";
-	}
-	
-	/**
-	 * 
-	 */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(Model model) {
-		
-		return "home";
-	}
 	
 	/**
 	 * 
