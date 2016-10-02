@@ -1,11 +1,14 @@
 package com.org.entities;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,6 +32,24 @@ public class Client implements Serializable{
 	
 	private Date dateNaissance;
 	
+	private boolean enabled=true;
+	
+	@OneToMany(mappedBy="client")
+	private List<Note> notes;
+
+	
+	public List<Note> getNotes() {
+		return notes;
+	}
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	public Long getIdClient() {
 		return idClient;
 	}
@@ -74,9 +95,11 @@ public class Client implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Client(String name, String prenom, String username, String password,
-			Date dateNaissance) {
+	
+	public Client(Long idClient, String name, String prenom, String username,
+			String password, Date dateNaissance) {
 		super();
+		this.idClient = idClient;
 		this.name = name;
 		this.prenom = prenom;
 		this.username = username;

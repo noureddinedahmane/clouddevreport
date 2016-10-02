@@ -41,4 +41,10 @@ public class ImpMetierClient implements IMetierClient {
 		return dao.listAllClients();
 	}
 
+	@Override
+	public Client getClientByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return dao.getClientByUserName(userName);
+	}
+
 }

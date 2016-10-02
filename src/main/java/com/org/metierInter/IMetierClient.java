@@ -11,4 +11,5 @@ public interface IMetierClient {
 	public void deleteClient(Long id);
 	public Client updateClient(Client client);
 	public List<Client> listAllClients();
+	public Client getClientByUserName(String userName) ;
 }

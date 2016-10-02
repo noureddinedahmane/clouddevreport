@@ -22,7 +22,7 @@
       <form  name="f" action="<c:url value='j_spring_security_check' />" Method="POST" class="form-signin">
        
         <h2 class="form-signin-heading">Please sign in</h2>
-        
+       
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="j_username" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
         

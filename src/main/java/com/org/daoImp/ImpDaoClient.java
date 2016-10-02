@@ -58,4 +58,22 @@ public class ImpDaoClient implements IDaoClient{
 		return req.getResultList();
 	}
 
+
+
+	@Override
+	public Client getClientByUserName(String userName) {
+		Query req = em.createQuery("select c from Client c where c.username=:x");
+		req.setParameter("x", userName);
+		
+		List results = req.getResultList();
+		
+		if(!results.isEmpty()){
+			
+			return (Client)results.get(0);
+		}else{
+			
+			return null;
+		}
+	}
+
 }

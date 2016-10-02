@@ -24,6 +24,10 @@
       <f:form  modelAttribute="client" action="saveClient" method="POST" class="form-inscription">
          <h4 class="form-signin-heading">Create your personal account</h4>
          
+         <c:if test="${not empty username_exist}">
+               <p class="errors">${username_exist}</p>   
+         </c:if>
+
         <label for="inputName" class="">Your Fist Name</label> <f:errors path="name" cssClass="errors"></f:errors>
         <f:input type="text" path="name" id="inputName" cssClass="form-control"  required="" autofocus=""/>
         

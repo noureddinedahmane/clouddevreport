@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.org.entities.Client;
 import com.org.metierInter.IMetierClient;
@@ -41,6 +42,15 @@ public class ClientController {
 	}
 	
 	/**
+	 * redirection to inscription faild page
+	 */
+	@RequestMapping(value = "/inscriptionFailed", method = RequestMethod.GET)
+	public String inscriptionFailed(Model model) {
+		return "inscription";
+	}
+	
+	
+	/**
 	 * accout activation
 	 */
 	@RequestMapping(value = "/accountActivation", method = RequestMethod.GET)
@@ -52,14 +62,28 @@ public class ClientController {
 	 * save Client
 	 */
 	@RequestMapping(value = "/saveClient", method = RequestMethod.POST)
-	public ModelAndView saveClient(@Valid Client client,BindingResult bindingResult,Model model) {
+	public ModelAndView saveClient(@Valid Client client,BindingResult bindingResult,RedirectAttributes redir) {
 		if(bindingResult.hasErrors()){
-			return new ModelAndView("inscription");
+			redir.addFlashAttribute("client",client);
+			return new ModelAndView("redirect:/inscriptionFailed");
 		}else{
+			
 			if(client!=null){
-				metier.addClient(client);
-			}			
-			return new ModelAndView("redirect:/accountActivation");
+				
+				//make sure that the Username is Unique
+				if(metier.getClientByUserName(client.getUsername())==null){
+					client.setEnabled(true);
+					metier.addClient(client);
+					return new ModelAndView("redirect:/accountActivation");
+				}else{
+					redir.addFlashAttribute("username_exist","Sorry the Username ist already registried");
+					redir.addFlashAttribute("client",client);
+					return new ModelAndView("redirect:/inscriptionFailed");
+				}
+				
+			}else{
+				return new ModelAndView("redirect:/inscriptionFailed");
+			}
 		}
 	}
 	
