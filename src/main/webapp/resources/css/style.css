@@ -1,0 +1,58 @@
+.note-list{
+	padding:0px;
+	overflow: scroll;
+	height: 90%;
+}
+
+.note-box{
+	height: 100%;
+}
+
+.note-section{
+	height: 520px;
+}
+
+.note-list ul{
+	list-style: none;
+	padding:0px;
+}
+
+.note-list li{
+	border-bottom: 1px solid #f4f4f4;
+	padding:4px;
+	padding-left:6px;
+}
+
+.note-list .tools{
+	float:right;
+	display:none;
+	color:red;
+}
+
+.note-list .tools .fa-edit{
+	margin-right:5px;
+}
+
+.note-list .note-title h3{
+	color:#5cb85c;
+	font-size:18px;
+}
+
+.note-list li:hover{
+	color:white;
+	background:#5cb85c;
+}
+
+.note-list li:hover .tools{
+	display:inline-block;
+}
+
+.note-list li:hover h3{
+	color:white;
+}
+
+.note-title-input{
+	color:#5cb85c;
+	font-size: 18px;
+	border: 0px;
+}

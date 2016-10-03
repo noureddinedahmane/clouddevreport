@@ -7,11 +7,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
-
+<!--  dependicies injection client module -->
  <bean id="dao" class="com.org.daoImp.ImpDaoClient"></bean>
  <bean id="metier" class="com.org.MetierImp.ImpMetierClient">
    <property name="dao" ref="dao"></property>
  </bean>
+ 
+ <!--  dependicies injection note module -->
+ <bean id="daoNote" class="com.org.daoImp.ImpDaoNote"></bean>
+ <bean id="metierNote" class="com.org.MetierImp.ImpMetierNote">
+   <property name="daoNote" ref="daoNote"></property>
+ </bean>
+ 
+ 
  
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
      <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>

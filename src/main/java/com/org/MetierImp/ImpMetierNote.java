@@ -12,31 +12,37 @@ import com.org.metierInter.IMetierNote;
 @Transactional
 public class ImpMetierNote implements IMetierNote{
 
-	private IDaoNote dao;
+	private IDaoNote daoNote;
 	
+	
+	
+	public void setDaoNote(IDaoNote daoNote) {
+		this.daoNote = daoNote;
+	}
+
 	@Override
 	public Note addNote(Note note, Client client) {
-		return dao.addNote(note, client);
+		return daoNote.addNote(note, client);
 	}
 
 	@Override
 	public Note getNote(Long idNote, Client client) {
-		return dao.getNote(idNote, client);
+		return daoNote.getNote(idNote, client);
 	}
 
 	@Override
 	public boolean deleteNote(Long idNote, Client client) {
-		return dao.deleteNote(idNote, client);
+		return daoNote.deleteNote(idNote, client);
 	}
 
 	@Override
 	public Note updateNote(Note note, Client client) {
-		return dao.updateNote(note, client);
+		return daoNote.updateNote(note, client);
 	}
 
 	@Override
 	public List<Note> listClientNote(int min, int max, Client client) {
-		return dao.listClientNote(min, max, client);
+		return daoNote.listClientNote(min, max, client);
 	}
 
 	@Override
