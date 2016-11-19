@@ -34,10 +34,40 @@ public class Client implements Serializable{
 	
 	private boolean enabled=true;
 	
+	
 	@OneToMany(mappedBy="client")
 	private List<Note> notes;
+	
+	@OneToMany(mappedBy="client")
+	private List<Patient> patients;
+	
+	@OneToMany(mappedBy="client")
+	private List<Task> tasks;
+	
+	@OneToMany(mappedBy="client")
+	private List<Calendar> calendars;
+	
+	
 
 	
+	public List<Calendar> getCalendars() {
+		return calendars;
+	}
+	public void setCalendars(List<Calendar> calendars) {
+		this.calendars = calendars;
+	}
+	public List<Task> getTasks() {
+		return tasks;
+	}
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+	public List<Patient> getPatients() {
+		return patients;
+	}
+	public void setPatients(List<Patient> patients) {
+		this.patients = patients;
+	}
 	public List<Note> getNotes() {
 		return notes;
 	}

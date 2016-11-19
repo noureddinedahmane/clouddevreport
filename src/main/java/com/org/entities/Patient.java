@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Patient implements Serializable {
@@ -35,6 +37,11 @@ public class Patient implements Serializable {
 	private String cphName; //cphName= curreny phisician name
 	private String cpPhone; //cphName= curreny phisician phone
 	
+	
+	
+	@ManyToOne
+	@JoinColumn(name="idClient")
+	private Client client;
 	
 	
 	public Long getIdPatient() {
@@ -162,6 +169,12 @@ public class Patient implements Serializable {
 	}
 	public void setCpPhone(String cpPhone) {
 		this.cpPhone = cpPhone;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 	
