@@ -70,9 +70,11 @@
               <input type="checkbox" class="pull-right" checked>
             </label>
 
-            <p>
-              Some information about this general settings option
-            </p>
+           <label><spring:message code="label.language"/></label>
+           <a href="?lang=en">EN</a>
+           <a href="?lang=de">DE</a>
+           <a href="<c:url value="?lang=fr"/>">FR</a>
+           
           </div>
           <!-- /.form-group -->
         </form>
