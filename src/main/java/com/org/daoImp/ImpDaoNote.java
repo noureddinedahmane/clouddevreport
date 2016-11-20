@@ -26,8 +26,12 @@ public class ImpDaoNote implements IDaoNote{
 	public Note getNote(Long idNote, Client client) {
 		
 		Note note =em.find(Note.class, idNote);
-		if(note.getClient().equals(client)){
-			return note;
+		if(note!=null){
+			if(note.getClient().equals(client)){
+				return note;
+			}else{
+				return null;
+			}
 		}else{
 			return null;
 		}
@@ -36,12 +40,16 @@ public class ImpDaoNote implements IDaoNote{
 	@Override
 	public boolean deleteNote(Long idNote, Client client) {
 		Note note =em.find(Note.class, idNote);
-		if(note.getClient().equals(client)){
-		   
-			em.remove(note);
-			return true;
+		if(note!=null){
+			if(note.getClient().equals(client)){
+				   
+				em.remove(note);
+				return true;
+			}else{
+				
+				return false;
+			}
 		}else{
-			
 			return false;
 		}
 		

@@ -19,6 +19,11 @@
    <property name="daoNote" ref="daoNote"></property>
  </bean>
  
+ <!--  dependicies injection task module -->
+ <bean id="daoTask" class="com.org.daoImp.ImpDaoTask"></bean>
+ <bean id="metierTask" class="com.org.MetierImp.ImpMetierTask">
+   <property name="daoTask" ref="daoTask"></property>
+ </bean>
  
  
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

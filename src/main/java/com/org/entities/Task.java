@@ -17,6 +17,7 @@ public class Task implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idTask;
 	
+    private String taskName;
 	private Date startDay;
 	private Date endDate;
 	private String status;      //status=(started, in progress, completed, deferred)
@@ -131,10 +132,21 @@ public class Task implements Serializable {
 		this.client = client;
 	}
 
+	public String getTaskName() {
+		return taskName;
+	}
 
-	public Task(Date startDay, Date endDate, String status, String category,
-			String priority, int completed, boolean reminder, String content) {
+
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+
+
+	public Task(String taskName, Date startDay, Date endDate, String status,
+			String category, String priority, int completed, boolean reminder,
+			String content) {
 		super();
+		this.taskName = taskName;
 		this.startDay = startDay;
 		this.endDate = endDate;
 		this.status = status;

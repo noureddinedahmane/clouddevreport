@@ -36,16 +36,17 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model, HttpServletRequest request) {
-		
+	
+		/*
 	 //return the user by username and store the idUser in user_session
 	 User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	 if(user!=null){
 		 
 		 Client client = metier.getClientByUserName(user.getUsername());
 		 if(client!=null){
-			 request.getSession().setAttribute("idClient", client.getIdClient());
+			 request.getSession().setAttribute("client", client);
 		 }
-	 }
+	 }*/
 	 
 	 
 	 return "home";
