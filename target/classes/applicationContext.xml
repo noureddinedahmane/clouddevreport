@@ -25,6 +25,20 @@
    <property name="daoTask" ref="daoTask"></property>
  </bean>
  
+  <!--  dependicies injection Patient module -->
+ <bean id="daoPatient" class="com.org.daoImp.ImpDaoPatient"></bean>
+ <bean id="metierPatient" class="com.org.MetierImp.ImpMetierPatient">
+   <property name="daoPatient" ref="daoPatient"></property>
+ </bean>
+ 
+ <!--  dependicies injection Calendar module -->
+ <bean id="daoCalendar" class="com.org.daoImp.ImpDaoCalendar"></bean>
+ <bean id="metierCalendar" class="com.org.MetierImp.ImpMetierCalendar">
+   <property name="daoCalendar" ref="metierCalendar"></property>
+ </bean>
+ 
+ 
+ 
  
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
      <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>

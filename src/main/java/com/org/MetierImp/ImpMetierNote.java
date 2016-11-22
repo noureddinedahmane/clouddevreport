@@ -48,15 +48,13 @@ public class ImpMetierNote implements IMetierNote{
 	@Override
 	public List<Note> searchNoteByTitle(int min, int max, String titleMotif,
 			Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		return daoNote.searchNoteByTitle(min, max, titleMotif, client);
 	}
 
 	@Override
 	public List<Note> searchNoteByBodyMotif(int min, int max, String bodyMotif,
 			Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		return daoNote.searchNoteByBodyMotif(min, max, bodyMotif, client);
 	}
 
 }
