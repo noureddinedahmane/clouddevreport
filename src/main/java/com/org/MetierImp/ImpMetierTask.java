@@ -3,11 +3,14 @@ package com.org.MetierImp;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.org.daoInter.IDaoTask;
 import com.org.entities.Client;
 import com.org.entities.Task;
 import com.org.metierInter.IMetierTask;
 
+@Transactional
 public class ImpMetierTask implements IMetierTask{
 
 	private IDaoTask daoTask;

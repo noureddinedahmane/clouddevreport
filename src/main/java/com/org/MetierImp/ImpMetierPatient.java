@@ -3,11 +3,14 @@ package com.org.MetierImp;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.org.daoInter.IDaoPatient;
 import com.org.entities.Client;
 import com.org.entities.Patient;
 import com.org.metierInter.IMetierPatient;
 
+@Transactional
 public class ImpMetierPatient implements IMetierPatient{
 	
 	private IDaoPatient daoPatient;

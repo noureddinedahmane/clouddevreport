@@ -57,15 +57,14 @@ public class ImpDaoNote implements IDaoNote{
 
 	@Override
 	public Note updateNote(Note note, Client client) {
+		 if(note!=null){
+			 note.setClient(client);
+			 em.merge(note);
+			 
+			 return note;
+		 }
 		 
-		if(note.getClient().equals(client)){
-			
-			em.merge(note);
-			return note;
-		}else{
-			
-			return null;
-		}
+		 return note;
 	}
 
 	@Override

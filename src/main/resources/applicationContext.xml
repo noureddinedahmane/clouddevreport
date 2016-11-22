@@ -9,7 +9,7 @@
 
 <!--  dependicies injection client module -->
  <bean id="dao" class="com.org.daoImp.ImpDaoClient"></bean>
- <bean id="metier" class="com.org.MetierImp.ImpMetierClient">
+ <bean id="metierClient" class="com.org.MetierImp.ImpMetierClient">
    <property name="dao" ref="dao"></property>
  </bean>
  
@@ -34,7 +34,13 @@
  <!--  dependicies injection Calendar module -->
  <bean id="daoCalendar" class="com.org.daoImp.ImpDaoCalendar"></bean>
  <bean id="metierCalendar" class="com.org.MetierImp.ImpMetierCalendar">
-   <property name="daoCalendar" ref="metierCalendar"></property>
+   <property name="daoCalendar" ref="daoCalendar"></property>
+ </bean>
+ 
+ <!--  dependicies injection Message module -->
+ <bean id="daoMessage" class="com.org.daoImp.ImpDaoMessage"></bean>
+ <bean id="metierMessage" class="com.org.MetierImp.ImpMetierMessage">
+   <property name="daoMessage" ref="daoMessage"></property>
  </bean>
  
  
@@ -68,7 +74,7 @@
     <property name="entityManagerFactory" ref="entityManagerFactory"></property>
  </bean>
  
- <tx:annotation-driven  transaction-manager="transactionManager"/>
+ <tx:annotation-driven  transaction-manager="transactionManager" proxy-target-class="true"/>
  <context:annotation-config></context:annotation-config>
 
 </beans>

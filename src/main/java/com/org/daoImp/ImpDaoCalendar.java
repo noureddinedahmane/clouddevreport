@@ -41,12 +41,11 @@ public class ImpDaoCalendar implements IDaoCalendar{
 
 	@Override
 	public Calendar updateCalendar(Calendar calendar, Client client) {
-		if(calendar.getClient().equals(client)){
-			em.merge(calendar);
-			return calendar;
-		}else{
-			return null;
-		}
+		calendar.setClient(client);
+		em.merge(calendar);
+		
+		return calendar;
+		
 	}
 
 	@Override
@@ -66,7 +65,7 @@ public class ImpDaoCalendar implements IDaoCalendar{
 
 	@Override
 	public List<Calendar> listCalendar(int min, int max, Client client) {
-		Query req = em.createQuery("select cl from Calendar cl where n.client=:c");
+		Query req = em.createQuery("select cl from Calendar cl where cl.client=:c");
 		req.setParameter("c", client);
 		req.setFirstResult(min);
 		req.setMaxResults(max);

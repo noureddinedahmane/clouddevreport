@@ -57,16 +57,18 @@ public class ImpDaoPatient implements IDaoPatient {
 
 	@Override
 	public Patient updatePatient(Patient patient, Client client) {
-		if(patient.getClient().equals(client)){
+		
+		if(patient!=null){
+			patient.setClient(client);
 			em.merge(patient);
-			return null;
 		}
-		return null;
+		
+		return patient;
 	}
 
 	@Override
 	public List<Patient> listPatient(int min, int max, Client client) {
-		Query req = em.createQuery("select p from Patient p where n.client=:c");
+		Query req = em.createQuery("select p from Patient p where p.client=:c");
 		req.setParameter("c", client);
 		req.setFirstResult(min);
 		req.setMaxResults(max);

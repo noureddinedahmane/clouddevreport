@@ -2,12 +2,15 @@ package com.org.MetierImp;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.org.daoInter.IDaoCalendar;
 import com.org.entities.Calendar;
 import com.org.entities.Client;
 import com.org.entities.Event;
 import com.org.metierInter.IMetierCalendar;
 
+@Transactional
 public class ImpMetierCalendar implements IMetierCalendar{
 	
 	private IDaoCalendar daoCalendar;

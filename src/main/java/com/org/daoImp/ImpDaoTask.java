@@ -62,14 +62,13 @@ public class ImpDaoTask implements IDaoTask{
 
 	@Override
 	public Task updateTask(Task task, Client client) {
-		
-		if(task.getClient().equals(client)){
-			
+	
+		if(task!=null){
+			task.setClient(client);
 			em.merge(task);
-			return task;
-		}else{
-			return null;
 		}
+		
+		return task;
 	}
 
 	@Override
