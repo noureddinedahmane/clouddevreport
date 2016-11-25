@@ -62,8 +62,8 @@ public class ImpMetierTask implements IMetierTask{
 
 	@Override
 	public List<Task> filterTask(int min, int max, Date startDay, Date endDate,
-			String status, String category, String priority) {
-		return daoTask.filterTask(min, max, startDay, endDate, status, category, priority);
+			String status, String category, String priority, Client client) {
+		return daoTask.filterTask(min, max, startDay, endDate, status, category, priority,client);
 	}
 
 }

@@ -50,8 +50,8 @@ public class ImpMetierPatient implements IMetierPatient{
 
 	@Override
 	public List<Patient> searchPatient(int min, int max, String patientName,
-			Date birthDay) {
-		return daoPatient.searchPatient(min, max, patientName, birthDay);
+			Date birthDay, Client client) {
+		return daoPatient.searchPatient(min, max, patientName, birthDay, client);
 	}
 	
 	

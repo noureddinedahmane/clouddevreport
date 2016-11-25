@@ -5,6 +5,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.hibernate.Criteria;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
+
 import com.org.daoInter.IDaoNote;
 import com.org.entities.Client;
 import com.org.entities.Note;
@@ -81,15 +86,29 @@ public class ImpDaoNote implements IDaoNote{
 	@Override
 	public List<Note> searchNoteByTitle(int min, int max, String titleMotif,
 			Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Criteria  criteria = em.unwrap(Session.class).createCriteria(Note.class);
+		criteria.add(Restrictions.eq("client", client));
+		criteria.add(Restrictions.like("title", titleMotif,MatchMode.ANYWHERE));
+		
+		criteria.setFirstResult(min);
+		criteria.setMaxResults(max);
+		
+		return criteria.list();
 	}
 
 	@Override
 	public List<Note> searchNoteByBodyMotif(int min, int max, String bodyMotif,
 			Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Criteria  criteria = em.unwrap(Session.class).createCriteria(Note.class);
+		criteria.add(Restrictions.eq("client", client));
+        criteria.add(Restrictions.like("note", bodyMotif,MatchMode.ANYWHERE));
+		
+		criteria.setFirstResult(min);
+		criteria.setMaxResults(max);
+		
+		return criteria.list();
 	}
 
 }

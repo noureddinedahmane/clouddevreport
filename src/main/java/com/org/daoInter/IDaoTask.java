@@ -15,8 +15,8 @@ public interface IDaoTask {
 	public List<Task> listTasks(int min, int max, Client client);
 	public List<Task> searchTaskByTaskName(int min, int max, String taskName, Client client);
 	public List<Task> searchTaskByBodyMotif(int min, int max, String bodyMotif, Client client);
-    public List<Task> filterTask(int min, int max, Date startDay, Date endDate,
-    		                     String status, String category, String priority);	
+	public List<Task> filterTask(int min, int max, Date startDay, Date endDate,
+            String status, String category, String priority, Client client);		
 	
 
 	

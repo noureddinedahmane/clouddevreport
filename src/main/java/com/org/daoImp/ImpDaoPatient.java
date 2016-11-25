@@ -7,6 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.hibernate.Criteria;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
+
 import com.org.daoInter.IDaoPatient;
 import com.org.entities.Client;
 import com.org.entities.Patient;
@@ -78,9 +82,22 @@ public class ImpDaoPatient implements IDaoPatient {
 
 	@Override
 	public List<Patient> searchPatient(int min, int max, String patientName,
-			Date birthDay) {
-		// TODO Auto-generated method stub
-		return null;
+			Date birthDay, Client client) {
+		
+		Criteria  criteria = em.unwrap(Session.class).createCriteria(Patient.class);
+		criteria.add(Restrictions.eq("client", client));
+		
+		if(patientName!=null){
+			criteria.add(Restrictions.eq("firstName", patientName));
+		}
+		if(birthDay!=null){
+			criteria.add(Restrictions.eq("birthDay", birthDay));
+		}
+		
+		criteria.setFirstResult(min);
+		criteria.setMaxResults(max);
+		
+		return criteria.list();
 	}
 
 }

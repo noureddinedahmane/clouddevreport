@@ -6,6 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.hibernate.Criteria;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
+
 import com.org.daoInter.IDaoMessage;
 import com.org.entities.Client;
 import com.org.entities.Message;
@@ -74,8 +78,24 @@ public class ImpDaoMessage implements IDaoMessage{
 	@Override
 	public List<Message> searchMessages(int min, int max, String subject,
 			String email, String name, Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Criteria  criteria = em.unwrap(Session.class).createCriteria(Message.class);
+		criteria.add(Restrictions.eq("client", client));
+		
+		if(subject!=null){
+			criteria.add(Restrictions.eq("subject", subject));
+		}
+		if(email!=null){
+			criteria.add(Restrictions.eq("email", email));
+		}
+		if(name!=null){
+			criteria.add(Restrictions.eq("name", name));
+		}
+
+		criteria.setFirstResult(min);
+		criteria.setMaxResults(max);
+		
+		return criteria.list();
 	}
 	
 	

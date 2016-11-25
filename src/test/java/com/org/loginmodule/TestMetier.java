@@ -77,7 +77,11 @@ public class TestMetier {
 		
 		List<Task> list2 = metierTask.listTasks(0, 100, client);
 		
+		List<Task> list3 = metierTask.searchTaskByTaskName(0, 100,"Task Name", client);
+		
 		assertTrue(list1.size()+1==list2.size());
+		
+		assertTrue(list3.size()!=0);
 				
       }catch(Exception ex){
     	  assertTrue(ex.getMessage(),false);
