@@ -5,14 +5,25 @@
   
     <!-- Content header-->
     <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
+        <div class="btn-group createNew">
+                  <button type="button" class="btn btn-success"><spring:message code="label.createNew"/></button>
+                  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+          </div>
+          
+          <h1>
+              Dashboard
+              <small>Control panel</small>
+           </h1>
     </section>
     
     <!--  Main Content -->

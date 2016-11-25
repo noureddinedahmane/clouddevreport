@@ -56,3 +56,16 @@
 	font-size: 18px;
 	border: 0px;
 }
+
+.btn-group>.btn+.dropdown-toggle{
+	height:34px;
+}
+
+.createNew{
+	float:right;
+}
+
+.createNew .dropdown-menu{
+	right:0;
+	left:1;
+}
