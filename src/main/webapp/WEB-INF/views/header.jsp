@@ -27,6 +27,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet"  href="<c:url value="/resources/dist/css/AdminLTE.min.css"/>">
+  <!-- datatables -->
+  <link rel="stylesheet"  href="<c:url value="/resources/plugins/datatables/dataTables.bootstrap.css"/>">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
@@ -250,35 +252,56 @@ desired effect
         </div>
       </div>
 
-      <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        
+        <li class="active"><a href="../admin/profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+        
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a href="#"><i class="fa fa-users"></i> <span>Patients</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li><a href="../admin/patient"><i class="fa fa-circle-o"></i>New Patient</a></li>
+            <li><a href="../admin/listPatients"><i class="fa fa-circle-o"></i>List Patients</a></li>
           </ul>
         </li>
+        
+        <li class="treeview">
+          <a href="#"><i class="fa fa-folder"></i> <span>Medical Records</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../admin/medicalRecord"><i class="fa fa-circle-o"></i>New Medical Record</a></li>
+            <li><a href="../admin/listMedicalRecords"><i class="fa fa-circle-o"></i>List Medical Records</a></li>
+          </ul>
+        </li>
+        
+        <li class="treeview">
+          <a href="#"><i class="ion ion-clipboard"></i> <span>Tasks</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../admin/task"><i class="fa fa-circle-o"></i>New Task</a></li>
+            <li><a href="../admin/listTasks"><i class="fa fa-circle-o"></i>List Tasks</a></li>
+          </ul>
+        </li>
+              
+        <li><a href="../admin/note"><i class="fa fa-sticky-note"></i> <span>Notes</span></a></li>
+        
+        <li><a href="../admin/calendar"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
+        
+         <li><a href="../admin/listMessages"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>
+        
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>

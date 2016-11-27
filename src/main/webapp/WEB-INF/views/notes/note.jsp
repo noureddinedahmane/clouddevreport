@@ -12,23 +12,25 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Note</a></li>
+                    <li><a href="#">Task</a></li>
+                    <li><a href="#">Patient</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Event</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
                   </ul>
           </div>
           
           <h1>
-              Dashboard
-              <small>Control panel</small>
+              <spring:message code="label.note"/>
+              <small></small>
            </h1>
     </section>
     
     <!--  Main Content -->
     <section class="content">
-       
+        
        <!-- Main Row -->
        <div class="row">
        
@@ -163,7 +165,8 @@
        </div>
        
     </section>
-  
+
+      
   </div>
   
 

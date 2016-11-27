@@ -31,13 +31,15 @@ public class NoteController {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 
-	
+	// redirect to form to create note	
 	@RequestMapping(value = "note", method = RequestMethod.GET)
 	public String newNote(Model model) {
 		
 				
 		return "notes/note";
 	}
+	
+	
 	
 	
 }
