@@ -4,11 +4,14 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -37,6 +40,8 @@ public class Client implements UserDetails {
 	
 	private boolean enabled=true;
 	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+	private ClientPage clientPage;
 	
 	@OneToMany(mappedBy="client")
 	private List<Note> notes;
@@ -53,6 +58,12 @@ public class Client implements UserDetails {
 	
 
 	
+	public ClientPage getClientPage() {
+		return clientPage;
+	}
+	public void setClientPage(ClientPage clientPage) {
+		this.clientPage = clientPage;
+	}
 	public List<Calendar> getCalendars() {
 		return calendars;
 	}

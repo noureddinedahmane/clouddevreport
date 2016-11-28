@@ -43,6 +43,12 @@
    <property name="daoMessage" ref="daoMessage"></property>
  </bean>
  
+  <!--  dependicies injection ClientPage module -->
+ <bean id="daoClientPage" class="com.org.daoImp.ImpDaoClientPage"></bean>
+ <bean id="metierClientPage" class="com.org.MetierImp.ImpMetierClientPage">
+   <property name="daoClientPage" ref="daoClientPage"></property>
+ </bean>
+ 
  
  
  

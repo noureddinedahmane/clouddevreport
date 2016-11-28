@@ -9,12 +9,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.org.MetierImp.ImpMetierCalendar;
 import com.org.MetierImp.ImpMetierClient;
+import com.org.MetierImp.ImpMetierClientPage;
 import com.org.MetierImp.ImpMetierMessage;
 import com.org.MetierImp.ImpMetierNote;
 import com.org.MetierImp.ImpMetierPatient;
 import com.org.MetierImp.ImpMetierTask;
 import com.org.entities.Calendar;
 import com.org.entities.Client;
+import com.org.entities.ClientPage;
 import com.org.entities.Message;
 import com.org.entities.Note;
 import com.org.entities.Patient;
@@ -185,6 +187,30 @@ public class TestMetier {
 	  }
       
 	}
+	
+	
+	@Test
+	public void testClientPage() {
+		
+      try{
+		ClassPathXmlApplicationContext context =
+				new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml"});
+		
+		ImpMetierClient metierClient = (ImpMetierClient) context.getBean("metierClient");
+		ImpMetierClientPage metierClientPage = (ImpMetierClientPage) context.getBean("metierClientPage");
+		Client client = metierClient.getClientByUserName("dnoureddine11@gmail.com");
+		
+		
+		ClientPage clientPage =  client.getClientPage();
+				
+		assertTrue(clientPage!=null); 
+
+      }catch(Exception ex){
+    	  assertTrue(ex.getMessage(),false);
+	  }
+      
+	}
+	
 	
 	/**   end Test case **/
 }
