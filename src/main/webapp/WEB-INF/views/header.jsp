@@ -260,6 +260,18 @@ desired effect
         <li class="active"><a href="../admin/profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
         
         <li class="treeview">
+          <a href="#"><i class="fa fa-globe"></i> <span>Web Page</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>Edit Your Page</a></li>
+            <li><a href="../pages/about"><i class="fa fa-circle-o"></i>Go to Page</a></li>
+          </ul>
+        </li>
+        
+        <li class="treeview">
           <a href="#"><i class="fa fa-users"></i> <span>Patients</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
