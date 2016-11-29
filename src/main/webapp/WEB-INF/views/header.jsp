@@ -64,6 +64,12 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-blue sidebar-mini">
+
+ <div class="alert alert-danger alert-dismissible message">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      Success alert preview. This alert is SDFDSFDSFDSFDSFDSFdismissable.
+ </div>
+  
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -266,7 +272,7 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Edit Your Page</a></li>
+            <li><a href="../admin/editAbout"><i class="fa fa-circle-o"></i>Edit Your Page</a></li>
             <li><a href="../pages/about"><i class="fa fa-circle-o"></i>Go to Page</a></li>
           </ul>
         </li>

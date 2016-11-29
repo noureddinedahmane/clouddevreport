@@ -97,7 +97,8 @@
 <script  src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>" ></script>
 <!-- AdminLTE App -->
 <script  src="<c:url value="/resources/dist/js/app.min.js"/>" ></script>
-<!-- databales -->
+<!-- CK Editor -->
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <!-- DataTables -->
 <script  src="<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/>" ></script>
 <script  src="<c:url value="/resources/plugins/datatables/dataTables.bootstrap.min.js"/>" ></script>
