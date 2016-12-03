@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
@@ -65,11 +65,17 @@ desired effect
 -->
 <body class="hold-transition skin-blue sidebar-mini">
 
- <div class="alert alert-danger alert-dismissible message">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      Success alert preview. This alert is SDFDSFDSFDSFDSFDSFdismissable.
- </div>
-  
+ <c:choose>
+    <c:when test="${message!=null}">
+    
+	 <div class="alert alert-${message.messageType } alert-dismissible message">
+	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+	      ${message.message}
+	 </div>
+	 
+    </c:when>    
+</c:choose>
+
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -273,6 +279,8 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="../admin/editAbout"><i class="fa fa-circle-o"></i>Edit Your Page</a></li>
+            <li><a href="../admin/addService"><i class="fa fa-circle-o"></i>Add a Service</a></li>
+            <li><a href="../admin/clientServices"><i class="fa fa-circle-o"></i>List Services</a></li>
             <li><a href="../pages/about"><i class="fa fa-circle-o"></i>Go to Page</a></li>
           </ul>
         </li>

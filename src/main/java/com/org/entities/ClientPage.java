@@ -3,6 +3,7 @@ package com.org.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,14 +22,14 @@ public class ClientPage implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idClientPage;
 	
-	@Column(name="about", columnDefinition="TEXT")
+	@Lob
 	private String about;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	private Client client;
 	
-	@OneToMany(mappedBy="clientPage")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="clientPage")
 	private List<ClientService> clientServices;
 
 	public Long getIdClientPage() {

@@ -58,4 +58,9 @@ public class ImpMetierClientPage implements IMetierClientPage{
 		return daoClientPage.deleteClientService(idClientService, client);
 	}
 
+	@Override
+	public ClientService getClientService(Long idClientService, Client client) {
+		return daoClientPage.getClientService(idClientService, client);
+	}
+
 }

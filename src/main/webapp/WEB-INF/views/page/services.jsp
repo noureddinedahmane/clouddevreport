@@ -7,9 +7,11 @@
         <div class="row">
 		
             <div class="col-lg-12">
-                <h1 class="page-header">
-                    Welcome to Modern Business
-                </h1>
+               <c:choose>
+                   <c:when test="${clientService!=null}">
+                       ${clientService.serviceDescription }
+                   </c:when>
+               </c:choose>
             </div>
 			
         </div>    

@@ -61,15 +61,15 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="services">Service 1</a>
-                            </li>
-                            <li>
-                                <a href="services">Service 2</a>
-                            </li>
-                            <li>
-                                <a href="services">Service 3</a>
-                            </li>
+                          <c:choose>
+                               <c:when test="${listClientServices!=null}">
+                                  <c:forEach items="${listClientServices}" var="clientService">
+                                     <li>
+                                         <a href="../pages/services?service=${clientService.idClientService}">${clientService.serviceName}</a>
+                                      </li>
+                                  </c:forEach>
+                               </c:when>    
+                          </c:choose>
                         </ul>
                     </li>
                     <li>

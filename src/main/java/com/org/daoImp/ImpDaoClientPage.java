@@ -52,6 +52,7 @@ public class ImpDaoClientPage implements IDaoClientPage{
 	    
 		return clientService;
 	}
+	
 
 	@Override
 	public ClientService updateClientService(ClientService clientService,
@@ -63,13 +64,14 @@ public class ImpDaoClientPage implements IDaoClientPage{
 		
 		return clientService;
 	}
+	
 
 	@Override
 	public boolean deleteClientService(Long idClientService, Client client) {
 		
 		ClientService clientService = em.find(ClientService.class, idClientService);
 		if(clientService!=null){
-			if(clientService.getClientPage().getClient().equals(client)){
+			if(client.getIdClient()==clientService.getClientPage().getClient().getIdClient()){
 				em.remove(clientService);
 				return true;
 			}
@@ -79,6 +81,20 @@ public class ImpDaoClientPage implements IDaoClientPage{
 		}else{
 			return false;
 		}
+	}
+	
+
+	@Override
+	public ClientService getClientService(Long idClientService, Client client) {
+		
+		ClientService clientService = em.find(ClientService.class, idClientService);
+		if(client.getIdClient()==clientService.getClientPage().getClient().getIdClient()){
+			return clientService;	
+		}
+		else{
+			return null;
+		}
+
 	}
 
 }

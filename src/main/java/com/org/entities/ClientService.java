@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 
@@ -19,6 +20,7 @@ public class ClientService implements Serializable {
 	private Long idClientService;
 	
 	private String serviceName;
+	@Lob
 	private String serviceDescription;
 	private Date dateCreation;
 	private Date dateLastUpdate;

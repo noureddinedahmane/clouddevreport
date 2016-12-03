@@ -19,4 +19,5 @@ public interface IDaoClientPage {
 	public ClientService addClientService(ClientService clientService, Client client);
 	public ClientService updateClientService(ClientService clientService, Client client);
 	public boolean deleteClientService(Long idClientService, Client client);
+	public ClientService getClientService(Long idClientService, Client client);
 }

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -25,6 +26,8 @@ public class Task implements Serializable {
 	private String priority;     //(Normal, ...)
 	private int completed;       // in procent %
 	private boolean reminder;
+	
+	@Lob
 	private String content;
 	
 	
