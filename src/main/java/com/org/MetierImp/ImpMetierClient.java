@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.org.daoInter.IDaoClient;
 import com.org.entities.Client;
+import com.org.entities.Role;
 import com.org.metierInter.IMetierClient;
 
 @Transactional
@@ -45,6 +46,11 @@ public class ImpMetierClient implements IMetierClient {
 	public Client getClientByUserName(String userName) {
 		// TODO Auto-generated method stub
 		return dao.getClientByUserName(userName);
+	}
+
+	@Override
+	public Role addRole(Client client, Role role) {
+		return dao.addRole(client, role);
 	}
 
 }

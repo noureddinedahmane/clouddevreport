@@ -17,13 +17,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.org.entities.Client;
+import com.org.entities.Role;
 import com.org.metierInter.IMetierClient;
+import com.org.metierInter.IMetierClientPage;
 
 @Controller
 public class ClientController {
 
 	@Autowired
 	private IMetierClient metier;
+	
+	@Autowired
+	private IMetierClientPage metierClientPage;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -74,6 +79,14 @@ public class ClientController {
 				if(metier.getClientByUserName(client.getUsername())==null){
 					client.setEnabled(true);
 					metier.addClient(client);
+					
+					//create client Page
+					metierClientPage.createClientPage(client);
+					
+					//add client Roles
+					Role role = new Role("ROLE_ADMIN");
+					metier.addRole(client, role);
+					
 					return new ModelAndView("redirect:/accountActivation");
 				}else{
 					redir.addFlashAttribute("username_exist","Sorry the Username ist already registried");

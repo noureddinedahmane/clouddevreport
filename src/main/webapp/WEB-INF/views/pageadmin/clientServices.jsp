@@ -85,48 +85,12 @@
  
  <%@include file="../footer.jsp" %>
  
- <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Warning</h4>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you wan to delete this item ?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="confirm-yes" class="btn btn-danger" data-dismiss="modal" data-url="">Yes</button>
-          <button type="button" id="confirm-no" class="btn btn-primary" data-dismiss="modal">No</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-<script type="text/javascript">
 
-	$('#confirm-yes').on('click', function(e) {
-	    e.preventDefault();	
-	    var url = $(this).data('url');	    
-	    window.location.href = url;
-	    
-	});
-	
-	$('.confirm-delete').on('click', function(e) {
-		
-		e.preventDefault();	
-		
-	    var url = $(this).data('url'); 
-	    
-	    $("#confirm-yes").attr("data-url",url);
-	    
-	    $('#myModal').modal('show');
-	    
-	});
-	
-</script>
+<!-- MODAL ELEMENT --> 
+
+<%@include file="../modal.jsp" %>
+
+  
+<!-- delete MODAL -->
+<script  src="<c:url value="/resources/js/deleteModal.js"/>" ></script>
  

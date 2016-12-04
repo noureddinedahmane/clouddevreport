@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import com.org.daoInter.IDaoClient;
 import com.org.entities.Client;
+import com.org.entities.Role;
 
 public class ImpDaoClient implements IDaoClient{
 
@@ -74,6 +75,16 @@ public class ImpDaoClient implements IDaoClient{
 			
 			return null;
 		}
+	}
+
+
+
+	@Override
+	public Role addRole(Client client, Role role) {
+		 role.setClient(client);
+		 em.persist(role);
+		 
+		return role;
 	}
 
 }

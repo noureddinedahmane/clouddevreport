@@ -19,7 +19,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class Client implements UserDetails {
+public class Client implements UserDetails,Serializable {
     
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -44,6 +44,10 @@ public class Client implements UserDetails {
 	private ClientPage clientPage;
 	
 	@OneToMany(mappedBy="client")
+	private List<Role> roles;
+	
+	
+	@OneToMany(mappedBy="client")
 	private List<Note> notes;
 	
 	@OneToMany(mappedBy="client")
@@ -56,8 +60,13 @@ public class Client implements UserDetails {
 	private List<Calendar> calendars;
 	
 	
-
 	
+	public List<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 	public ClientPage getClientPage() {
 		return clientPage;
 	}
