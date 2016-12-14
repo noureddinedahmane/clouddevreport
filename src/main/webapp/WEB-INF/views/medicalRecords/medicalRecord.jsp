@@ -5,25 +5,12 @@
   
   <!-- Content header-->
     <section class="content-header">
-        <div class="btn-group createNew">
-                  <button type="button" class="btn btn-success"><spring:message code="label.createNew"/></button>
-                  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Note</a></li>
-                    <li><a href="#">Task</a></li>
-                    <li><a href="#">Patient</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Event</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-          </div>
+        
+          <!-- list save actions -->
+          <%@include file="../saveActions.jsp" %>
           
           <h1>
-              New Medical Record
+              Medical Record
               <small></small>
            </h1>
     </section>
@@ -33,7 +20,113 @@
         
        <!-- Main Row -->
        <div class="row">
-       
+          
+          <div class="col-md-8">
+           
+             <div class="col-md-6">
+            <div class="info-box bg-yellow">
+	           <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+	
+	           <div class="info-box-content">
+	              <span class="info-box-text">Inventory</span>
+	              <span class="info-box-number">5,200</span>
+	
+	              <div class="progress">
+	                <div class="progress-bar" style="width: 50%"></div>
+	              </div>
+	                  <span class="progress-description">
+	                    50% Increase in 30 Days
+	                  </span>
+	            </div>
+	            <!-- /.info-box-content -->
+            </div>     
+          </div>
+          
+          <div class="col-md-6">
+            <div class="info-box bg-green">
+	           <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+	
+	           <div class="info-box-content">
+	              <span class="info-box-text">Inventory</span>
+	              <span class="info-box-number">5,200</span>
+	
+	              <div class="progress">
+	                <div class="progress-bar" style="width: 50%"></div>
+	              </div>
+	                  <span class="progress-description">
+	                    50% Increase in 30 Days
+	                  </span>
+	            </div>
+	            <!-- /.info-box-content -->
+            </div>     
+          </div>
+          
+          <div class="col-md-6">
+            <div class="info-box bg-aqua">
+	           <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+	
+	           <div class="info-box-content">
+	              <span class="info-box-text">Inventory</span>
+	              <span class="info-box-number">5,200</span>
+	
+	              <div class="progress">
+	                <div class="progress-bar" style="width: 50%"></div>
+	              </div>
+	                  <span class="progress-description">
+	                    50% Increase in 30 Days
+	                  </span>
+	            </div>
+	            <!-- /.info-box-content -->
+            </div>     
+          </div>
+        
+          <div class="col-md-6">
+            <div class="info-box bg-red">
+	           <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+	
+	           <div class="info-box-content">
+	              <span class="info-box-text">Inventory</span>
+	              <span class="info-box-number">5,200</span>
+	
+	              <div class="progress">
+	                <div class="progress-bar" style="width: 50%"></div>
+	              </div>
+	                  <span class="progress-description">
+	                    50% Increase in 30 Days
+	                  </span>
+	            </div>
+	            <!-- /.info-box-content -->
+            </div>    
+             
+          </div>
+          
+          </div>
+          
+          <div class="col-md-4">
+
+	         <!-- Profile Image -->
+	         <div class="box box-primary">
+	            <div class="box-body box-profile">
+	              <img class="profile-user-img img-responsive img-circle" src="<c:url value='/resources/dist/img/user4-128x128.jpg'/>">
+	
+	              <h3 class="profile-username text-center">Nina Mcintire</h3>
+	
+	              <p class="text-muted text-center">Software Engineer</p>
+	
+	              <ul class="list-group list-group-unbordered">
+	                <li class="list-group-item">
+	                  <b>Infos</b> <a class="pull-right"></a>
+	                </li>
+	              </ul>
+	
+	              <a href="#" class="btn btn-primary btn-block"><b>Go to Profile</b></a>
+	            </div>
+	            <!-- /.box-body -->
+	          </div>
+          
+          </div>
+          
+          
         
        </div><!-- ./Main Row -->
        

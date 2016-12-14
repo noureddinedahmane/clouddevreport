@@ -33,7 +33,7 @@ public class ImpDaoPatient implements IDaoPatient {
 	public Patient getPatient(Long idPatient, Client client) {
 		Patient patient = em.find(Patient.class, idPatient);
 		if(patient!=null){
-			if(patient.getClient().equals(client)){
+			if(patient.getClient().getIdClient().equals(client.getIdClient())){
 				return patient;
 			}else{
 				return null;
@@ -47,7 +47,7 @@ public class ImpDaoPatient implements IDaoPatient {
 	public boolean deletePatient(Long idPatient, Client client) {
 		 Patient patient = em.find(Patient.class, idPatient);
 		 if(patient!=null){
-			 if(patient.getClient().equals(client)){
+			 if(patient.getClient().getIdClient().equals(client.getIdClient())){
 				 em.remove(patient);
 				 return true;
 				 

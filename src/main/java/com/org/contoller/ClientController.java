@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.org.entities.Client;
+import com.org.entities.Profile;
 import com.org.entities.Role;
 import com.org.metierInter.IMetierClient;
 import com.org.metierInter.IMetierClientPage;
@@ -87,6 +88,18 @@ public class ClientController {
 					Role role = new Role("ROLE_ADMIN");
 					metier.addRole(client, role);
 					
+					//init Client profile
+					Profile profile = new Profile();
+					profile.setClient(client);
+					profile.setClientBirthDay(client.getDateNaissance());
+					profile.setClientFirstName(client.getName());
+					profile.setClientLatName(client.getPrenom());
+					profile.setClientEmail(client.getUsername());
+                    metier.addProfile(profile, client);
+                    
+                    //send a message to activate the count !!!
+					
+                    //
 					return new ModelAndView("redirect:/accountActivation");
 				}else{
 					redir.addFlashAttribute("username_exist","Sorry the Username ist already registried");

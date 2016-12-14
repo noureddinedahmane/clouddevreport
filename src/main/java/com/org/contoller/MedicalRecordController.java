@@ -1,5 +1,7 @@
 package com.org.contoller;
 
+import java.security.Principal;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +21,12 @@ public class MedicalRecordController {
 	
 	// redirect to form to add medical record
 	@RequestMapping(value = "medicalRecord", method = RequestMethod.GET)
-	public String addMedicalRecord(Model model) {
+	public String addMedicalRecord(Model model, Long patient, Principal principal) {
 		
 				
 		return "medicalRecords/medicalRecord";
 	}
+	
+	
 	
 }

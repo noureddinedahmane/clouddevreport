@@ -65,7 +65,8 @@ desired effect
 -->
 <body class="hold-transition skin-blue sidebar-mini">
 
- <c:choose>
+ <div id="msg">
+     <c:choose>
     <c:when test="${message!=null}">
     
 	 <div class="alert alert-${message.messageType } alert-dismissible message">
@@ -75,6 +76,7 @@ desired effect
 	 
     </c:when>    
 </c:choose>
+ </div>
 
 <div class="wrapper">
 
@@ -292,7 +294,7 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../admin/patient"><i class="fa fa-circle-o"></i>New Patient</a></li>
+            <li><a href="../admin/addPatient"><i class="fa fa-circle-o"></i>New Patient</a></li>
             <li><a href="../admin/listPatients"><i class="fa fa-circle-o"></i>List Patients</a></li>
           </ul>
         </li>

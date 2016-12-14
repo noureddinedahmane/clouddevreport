@@ -5,22 +5,9 @@
   
   <!-- Content header-->
     <section class="content-header">
-        <div class="btn-group createNew">
-                  <button type="button" class="btn btn-success"><spring:message code="label.createNew"/></button>
-                  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Note</a></li>
-                    <li><a href="#">Task</a></li>
-                    <li><a href="#">Patient</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Event</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-          </div>
+        
+          <!-- list save actions -->
+          <%@include file="../saveActions.jsp" %>
           
           <h1>
               Edit You Page
@@ -48,27 +35,24 @@
                 
                 <!-- Hidden fields -->
                 <form:hidden path="idClientService"/>
+                
 	            <!-- edit the name of the service -->
 		       <div class="col-md-12">
 		       
 		           <div class="box box-info">
 
 		              <div class="box-body">
-		              
-		                <div class="form-group">
-		                  <label for="inputEmail3" class="col-sm-2 control-label">Sevice Name</label>
-		
-		                  <div class="col-sm-10">
-		                    <form:input  cssClass="form-control" path="serviceName"  placeholder="Service Name..." />
-		                  </div>
-		                </div>
-	 
+	                       <div class="form-group">
+	                          <label for="inputEmail3" class="control-label">Sevice Name</label>
+	                          <form:input  cssClass="form-control" path="serviceName"  placeholder="Service Name..." />
+	                       </div>
 		              </div>
-		              <!-- /.box-body -->
+		             
+		             </div>
+		             <!-- /.box-body -->
 	
 	               </div>
 	               
-		       </div>
 	             
 		        <div class="col-md-12">
 		          <div class="box box-info">

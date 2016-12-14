@@ -31,7 +31,7 @@ public class ImpDaoMessage implements IDaoMessage{
 	public Message getMessage(Long idMessage, Client client) {
 		Message message = em.find(Message.class, idMessage);
 		if(message!=null){
-			if(message.getClient().equals(client)){
+			if(message.getClient().getIdClient().equals(client.getIdClient())){
 				return message;
 			}else{
 				return null;
@@ -53,7 +53,7 @@ public class ImpDaoMessage implements IDaoMessage{
 	public boolean deleteMessage(Long idMessage, Client client) {
 		Message message = em.find(Message.class, idMessage);
 		if(message!=null){
-			if(message.getClient().equals(client)){
+			if(message.getClient().getIdClient().equals(client.getIdClient())){
 				em.remove(message);
 				return true;
 			}else{

@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import com.org.daoInter.IDaoClient;
 import com.org.entities.Client;
+import com.org.entities.Profile;
 import com.org.entities.Role;
 
 public class ImpDaoClient implements IDaoClient{
@@ -85,6 +86,30 @@ public class ImpDaoClient implements IDaoClient{
 		 em.persist(role);
 		 
 		return role;
+	}
+
+
+
+	@Override
+	public Profile addProfile(Profile profile, Client client) {
+		profile.setClient(client);
+		em.persist(profile);
+		
+		return profile;
+	}
+
+
+
+	@Override
+	public Profile updateProfile(Profile profile, Client client) {
+		if(client.equals(profile.getClient())){
+			profile.setClient(client);
+			em.merge(profile);
+			return profile;
+			
+		}else{
+			return null;
+		}
 	}
 
 }

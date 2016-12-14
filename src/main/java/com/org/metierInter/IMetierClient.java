@@ -3,6 +3,7 @@ package com.org.metierInter;
 import java.util.List;
 
 import com.org.entities.Client;
+import com.org.entities.Profile;
 import com.org.entities.Role;
 
 public interface IMetierClient {
@@ -14,4 +15,7 @@ public interface IMetierClient {
 	public List<Client> listAllClients();
 	public Client getClientByUserName(String userName) ;
 	public Role addRole(Client client, Role role);
+	
+	public Profile addProfile(Profile profile, Client client);
+	public Profile updateProfile(Profile profile, Client client);
 }

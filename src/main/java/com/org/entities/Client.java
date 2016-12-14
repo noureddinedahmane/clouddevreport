@@ -41,6 +41,9 @@ public class Client implements UserDetails,Serializable {
 	private boolean enabled=true;
 	
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+	private Profile profile;
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
 	private ClientPage clientPage;
 	
 	@OneToMany(mappedBy="client")
@@ -50,7 +53,7 @@ public class Client implements UserDetails,Serializable {
 	@OneToMany(mappedBy="client")
 	private List<Note> notes;
 	
-	@OneToMany(mappedBy="client")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="client")
 	private List<Patient> patients;
 	
 	@OneToMany(mappedBy="client")
@@ -61,6 +64,12 @@ public class Client implements UserDetails,Serializable {
 	
 	
 	
+	public Profile getProfile() {
+		return profile;
+	}
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
 	public List<Role> getRoles() {
 		return roles;
 	}

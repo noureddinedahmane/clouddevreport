@@ -1,6 +1,7 @@
 package com.org.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,12 +20,23 @@ public class Message implements Serializable{
 	private String name;
 	private String email;
 	private String phone;
+	private Date dateCreation;
 	private String subject;
 	private String messageContent;
 	
 	@ManyToOne
 	@JoinColumn(name="idClient")
 	private Client client;
+
+	
+	
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
 
 	public Long getIdMessage() {
 		return idMessage;

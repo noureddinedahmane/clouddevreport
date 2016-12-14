@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -34,8 +35,8 @@ public class Patient implements Serializable {
 	private String irfchPhone;//icfchName= individual responsible for charges phone
 	private String referredBy;
 	private String referralReason;
-	private String cphName; //cphName= curreny phisician name
-	private String cpPhone; //cphName= curreny phisician phone
+	private String cphName; //cphName= currency phisician name
+	private String cpPhone; //cphName= currency phisician phone
 	
 	
 	

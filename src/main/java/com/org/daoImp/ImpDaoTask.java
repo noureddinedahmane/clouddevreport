@@ -36,7 +36,7 @@ public class ImpDaoTask implements IDaoTask{
 		Task task = em.find(Task.class,idTask);
 		
 		if(task!=null){
-			if(task.getClient().equals(client)){
+			if(task.getClient().getIdClient().equals(client.getIdClient())){
 				
 				return task;
 			}else{
@@ -54,7 +54,7 @@ public class ImpDaoTask implements IDaoTask{
 		Task task = em.find(Task.class,idTask);
 		if(task!=null){
 			
-			if(task.getClient().equals(client)){
+			if(task.getClient().getIdClient().equals(client.getIdClient())){
 				em.remove(task);
 				return true;
 			}else{
