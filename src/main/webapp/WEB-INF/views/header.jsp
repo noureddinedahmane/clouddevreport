@@ -35,6 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   -->
   <link rel="stylesheet"  href="<c:url value="/resources/dist/css/skins/skin-blue.min.css"/>">
 
+  <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="<c:url value="/resources/plugins/fullcalendar/fullcalendar.min.css"/>">
+  <link rel="stylesheet" href="<c:url value="/resources/plugins/fullcalendar/fullcalendar.print.css"/>" media="print">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -271,7 +274,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         
-        <li class="active"><a href="../admin/profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+        <li class="active"><a href="profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
         
         <li class="treeview">
           <a href="#"><i class="fa fa-globe"></i> <span>Web Page</span>
@@ -280,9 +283,9 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../admin/editAbout"><i class="fa fa-circle-o"></i>Edit Your Page</a></li>
-            <li><a href="../admin/addService"><i class="fa fa-circle-o"></i>Add a Service</a></li>
-            <li><a href="../admin/clientServices"><i class="fa fa-circle-o"></i>List Services</a></li>
+            <li><a href="editAbout"><i class="fa fa-circle-o"></i>Edit Your Page</a></li>
+            <li><a href="addService"><i class="fa fa-circle-o"></i>Add a Service</a></li>
+            <li><a href="clientServices"><i class="fa fa-circle-o"></i>List Services</a></li>
             <li><a href="../pages/about"><i class="fa fa-circle-o"></i>Go to Page</a></li>
           </ul>
         </li>
@@ -294,8 +297,8 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../admin/addPatient"><i class="fa fa-circle-o"></i>New Patient</a></li>
-            <li><a href="../admin/listPatients"><i class="fa fa-circle-o"></i>List Patients</a></li>
+            <li><a href="addPatient"><i class="fa fa-circle-o"></i>New Patient</a></li>
+            <li><a href="listPatients"><i class="fa fa-circle-o"></i>List Patients</a></li>
           </ul>
         </li>
         
@@ -306,10 +309,12 @@ desired effect
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../admin/medicalRecord"><i class="fa fa-circle-o"></i>New Medical Record</a></li>
-            <li><a href="../admin/listMedicalRecords"><i class="fa fa-circle-o"></i>List Medical Records</a></li>
+            <li><a href="medicalRecord"><i class="fa fa-circle-o"></i>New Medical Record</a></li>
+            <li><a href="listMedicalRecords"><i class="fa fa-circle-o"></i>List Medical Records</a></li>
           </ul>
         </li>
+        
+        <li><a href="listRegimes"><i class="fa fa-hospital-o"></i> <span>Diets</span></a></li>
         
         <li class="treeview">
           <a href="#"><i class="ion ion-clipboard"></i> <span>Tasks</span>
@@ -323,11 +328,11 @@ desired effect
           </ul>
         </li>
               
-        <li><a href="../admin/note"><i class="fa fa-sticky-note"></i> <span>Notes</span></a></li>
+        <li><a href="note"><i class="fa fa-sticky-note"></i> <span>Notes</span></a></li>
         
-        <li><a href="../admin/calendar"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
+        <li><a href="calendar"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
         
-         <li><a href="../admin/listMessages"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>
+         <li><a href="listMessages"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>
         
         
       </ul>

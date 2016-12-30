@@ -9,6 +9,39 @@
 	
 }
 
+.confirm-delete{
+	color:red;
+	cursor:pointer;
+}
+
+.regimeTextarea{
+   height:100px !important;	
+}
+
+.regime_active{
+	color:green;
+	height:20px;
+}
+
+.delete_icon{
+	margin-left:5px;
+}
+
+.calendar_tools{
+	display:none;
+	color:red;
+}
+
+
+.table_calendar tr:hover span{
+	display: inline-block;
+	cursor:pointer;
+}
+
+.table_calendar tr:hover{
+	cursor:pointer;
+}
+
 .img_container{
 	padding:3px;
 	width:64px;

@@ -51,7 +51,7 @@ public class NoteController {
 		return "notes/note";
 	}
 	
-	// redirect to form to create note	
+	// ******
 	@ResponseBody
 	@RequestMapping(value = "saveNote", method = RequestMethod.POST, produces = "application/json")
 	public String saveNote(HttpServletRequest request, Principal principal) {

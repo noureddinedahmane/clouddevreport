@@ -28,7 +28,7 @@ public class ImpDaoCalendar implements IDaoCalendar{
 	public Calendar getCalendar(Long idCalendar, Client client) {
 		Calendar calendar = em.find(Calendar.class, idCalendar);
 		if(calendar!=null){
-			if(calendar.getClient().equals(client)){
+			if(calendar.getClient().getIdClient().equals(client.getIdClient())){
 				
 				return calendar;
 			}else{
@@ -52,7 +52,7 @@ public class ImpDaoCalendar implements IDaoCalendar{
 	public boolean deleteCalendar(Long idCalendar, Client client) {
 		Calendar calendar =  em.find(Calendar.class, idCalendar);
 		if(calendar!=null){
-			if(calendar.getClient().equals(client)){
+			if(calendar.getClient().getIdClient().equals(client.getIdClient())){
 				em.remove(calendar);
 				return true;
 			}else{
@@ -86,7 +86,7 @@ public class ImpDaoCalendar implements IDaoCalendar{
 		
 		Event event = em.find(Event.class, idEvent);
 		if(event!=null){
-			if(event.getCalendar().getClient().equals(client)){
+           if(event.getCalendar().getClient().getIdClient().equals(client.getIdClient())){
 				return event;
 			}else{
 				return null;
@@ -98,7 +98,7 @@ public class ImpDaoCalendar implements IDaoCalendar{
 
 	@Override
 	public Event updateEvent(Event event, Client client) {
-		if(event.getCalendar().getClient().equals(client)){
+		 if(event.getCalendar().getClient().getIdClient().equals(client.getIdClient())){
 			em.merge(event);
 			return event;
 		}else{
@@ -110,7 +110,7 @@ public class ImpDaoCalendar implements IDaoCalendar{
 	public boolean deleteEvent(Long idEvent, Client client) {
 		Event event = em.find(Event.class, idEvent);
 		if(event!=null){
-			if(event.getCalendar().getClient().equals(client)){
+			 if(event.getCalendar().getClient().getIdClient().equals(client.getIdClient())){
 				em.remove(event);
 				return true;
 			}else{

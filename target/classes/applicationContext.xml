@@ -49,6 +49,11 @@
    <property name="daoClientPage" ref="daoClientPage"></property>
  </bean>
  
+ <!--  dependicies injection Regime  module -->
+ <bean id="daoRegime" class="com.org.daoImp.ImpDaoRegime"></bean>
+ <bean id="metierRegime" class="com.org.MetierImp.ImpMetierRegime">
+   <property name="daoRegime" ref="daoRegime"></property>
+ </bean>
  
  
  

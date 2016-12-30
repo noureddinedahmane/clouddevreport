@@ -21,10 +21,39 @@ public class Event implements Serializable {
 	private Date endDate;
 	private String liblle;
 	private String category;
+	private String location;
+	private String description;
+	private String occupation;//values=occupe,libre, provisoire, absent
+	
 	
 	@ManyToOne
 	@JoinColumn(name="idCalendar")
 	private Calendar calendar;
+
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
 
 	public Long getIdEvent() {
 		return idEvent;
@@ -74,12 +103,18 @@ public class Event implements Serializable {
 		this.calendar = calendar;
 	}
 
-	public Event(Date startDate, Date endDate, String liblle, String category) {
+
+
+	public Event(Date startDate, Date endDate, String liblle, String category,
+			String location, String description, String occupation) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.liblle = liblle;
 		this.category = category;
+		this.location = location;
+		this.description = description;
+		this.occupation = occupation;
 	}
 
 	public Event() {

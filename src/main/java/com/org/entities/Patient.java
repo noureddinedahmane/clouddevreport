@@ -1,14 +1,19 @@
 package com.org.entities;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Patient implements Serializable {
@@ -44,7 +49,18 @@ public class Patient implements Serializable {
 	@JoinColumn(name="idClient")
 	private Client client;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="patient")
+	private List<Regime> regimes;
 	
+	
+	
+	
+	public List<Regime> getRegimes() {
+		return regimes;
+	}
+	public void setRegimes(List<Regime> regimes) {
+		this.regimes = regimes;
+	}
 	public Long getIdPatient() {
 		return idPatient;
 	}
