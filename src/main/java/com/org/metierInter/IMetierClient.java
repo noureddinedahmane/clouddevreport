@@ -2,8 +2,9 @@ package com.org.metierInter;
 
 import java.util.List;
 
+import com.org.entities.Account;
 import com.org.entities.Client;
-import com.org.entities.Profile;
+import com.org.entities.Domain;
 import com.org.entities.Role;
 
 public interface IMetierClient {
@@ -15,7 +16,12 @@ public interface IMetierClient {
 	public List<Client> listAllClients();
 	public Client getClientByUserName(String userName) ;
 	public Role addRole(Client client, Role role);
+	public List<Client> listClientByAccount(Account account);
+	public List<Client> listUsersByDomain(Domain domain);
 	
-	public Profile addProfile(Profile profile, Client client);
-	public Profile updateProfile(Profile profile, Client client);
+	//client account
+	public Account addAccont(Account account);
+	public Account getAccount(Long id);
+	public Account updateAccount(Account account);
+
 }

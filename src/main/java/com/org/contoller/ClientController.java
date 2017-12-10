@@ -16,20 +16,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.org.entities.Account;
 import com.org.entities.Client;
-import com.org.entities.Profile;
+import com.org.entities.Configuration;
+import com.org.entities.Domain;
 import com.org.entities.Role;
 import com.org.metierInter.IMetierClient;
-import com.org.metierInter.IMetierClientPage;
+import com.org.metierInter.IMetierDeviationReport;
 
 @Controller
 public class ClientController {
 
 	@Autowired
-	private IMetierClient metier;
+	private IMetierClient metierClient;
 	
 	@Autowired
-	private IMetierClientPage metierClientPage;
+	private IMetierDeviationReport metier;
+	
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -74,28 +77,56 @@ public class ClientController {
 			return new ModelAndView("redirect:/inscriptionFailed");
 		}else{
 			
+			//Steps for creating a account
+			/*
+			 * 1- create a account
+			 * 2- create a domain and a associate to this account
+			 * 3- create a configuration and add it to this domain
+			 * 4- create a user and associate it to this domain and to the account
+			 * 5- add the admin roles to this user
+			 * 6- send a message for account activation
+			 */
+			
+			// 1- acccount is added
+			Account account = new Account();
+			account.setNom(client.getName());
+			account.setEmail(client.getUsername());
+			
+			metierClient.addAccont(account);
+			
+			
+			// 2- create a first domain
+			Domain domain = new Domain();
+			domain.setAccount(account);
+			domain.setDomainName("Domain Test");
+			domain.setOthers("You can modifiy the info about this domain as you want.");
+			
+			metier.addDomain(domain, null);
+			
+			
+			// 3- add a configuration to the domain
+			Configuration config = new Configuration();
+			config.setDomain(domain);
+			
+			metier.addConfiguration(config, domain, null);
+			
+			
+			// 4- create user and associate it this account and to the domain
 			if(client!=null){
 				
 				//make sure that the Username is Unique
-				if(metier.getClientByUserName(client.getUsername())==null){
+				if(metierClient.getClientByUserName(client.getUsername())==null){
 					client.setEnabled(true);
-					metier.addClient(client);
-					
-					//create client Page
-					metierClientPage.createClientPage(client);
-					
+					client.setAccount(account);
+					client.setDomain(domain);
+					metierClient.addClient(client);
+				
+									
 					//add client Roles
-					Role role = new Role("ROLE_ADMIN");
-					metier.addRole(client, role);
+					Role role = new Role("ROLE_ADMIN_DOMAIN");
+					metierClient.addRole(client, role);
 					
-					//init Client profile
-					Profile profile = new Profile();
-					profile.setClient(client);
-					profile.setClientBirthDay(client.getDateNaissance());
-					profile.setClientFirstName(client.getName());
-					profile.setClientLatName(client.getPrenom());
-					profile.setClientEmail(client.getUsername());
-                    metier.addProfile(profile, client);
+		
                     
                     //send a message to activate the count !!!
 					

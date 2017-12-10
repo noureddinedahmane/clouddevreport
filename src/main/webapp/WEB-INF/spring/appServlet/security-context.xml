@@ -5,11 +5,11 @@
 						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-	        <intercept-url pattern="/admin/**"  access="ROLE_ADMIN"/>
+	        <intercept-url pattern="/admin/**"  access="ROLE_ADMIN_DOMAIN"/>
 	        
 	        <form-login
 		         login-page="/login"
-		         default-target-url="/admin"
+		         default-target-url="/admin/deviations"
                  authentication-failure-url="/login"
 		     />
 		     
@@ -20,8 +20,8 @@
 	<authentication-manager>
 	  <authentication-provider>
 	        
-	     <jdbc-user-service data-source-ref="dataSource" users-by-username-query="select username, password, enabled from client where username=?"
-	      authorities-by-username-query="select u.username, r.roleName from client u, role r where u.idClient=r.idClient and u.username=?" />
+	     <jdbc-user-service data-source-ref="dataSource" users-by-username-query="select username, password, enabled from Client where username=?"
+	      authorities-by-username-query="select u.username, r.roleName from Client u, Role r where u.idClient=r.idClient and u.username=?" />
 	     
 	      <!--
 	     	<user-service>

@@ -4,8 +4,9 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.org.daoInter.IDaoClient;
+import com.org.entities.Account;
 import com.org.entities.Client;
-import com.org.entities.Profile;
+import com.org.entities.Domain;
 import com.org.entities.Role;
 import com.org.metierInter.IMetierClient;
 
@@ -55,13 +56,33 @@ public class ImpMetierClient implements IMetierClient {
 	}
 
 	@Override
-	public Profile addProfile(Profile profile, Client client) {
-		return dao.addProfile(profile, client);
+	public Account addAccont(Account account) {
+		// TODO Auto-generated method stub
+		return dao.addAccont(account);
 	}
 
 	@Override
-	public Profile updateProfile(Profile profile, Client client) {
-		return dao.updateProfile(profile, client);
+	public Account getAccount(Long id) {
+		// TODO Auto-generated method stub
+		return dao.getAccount(id);
+	}
+
+	@Override
+	public Account updateAccount(Account account) {
+		// TODO Auto-generated method stub
+		return  dao.updateAccount(account);
+	}
+
+	@Override
+	public List<Client> listClientByAccount(Account account) {
+		// TODO Auto-generated method stub
+		return dao.listClientByAccount(account);
+	}
+
+	@Override
+	public List<Client> listUsersByDomain(Domain domain) {
+		// TODO Auto-generated method stub
+		return dao.listUsersByDomain(domain);
 	}
 
 }

@@ -34,7 +34,7 @@ public class HomeController {
 	/**
 	 * 
 	 */
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/", method = RequestMethod.GET)
 	public String admin(Model model, HttpServletRequest request) {
 	
 		/*

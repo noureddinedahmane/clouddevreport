@@ -1,3 +1,69 @@
+.col_num{
+   text-align:center;
+   font-size:16px;
+   font-weight: bold;
+   padding:12px;
+}
+
+.modal-dialog{
+	width:700px !important;
+}
+
+.dev-status{
+	padding:7px;
+	border-radius:4px;
+}
+.dev-expired{
+	background:#EAA774;
+}
+.dev-pendding{
+	background:yellow;
+}
+.dev-rejected{
+	background:red;
+}
+.dev-approved{
+	background:green;
+}
+
+.yellow, .red, .orange, .green{
+	width:110px;
+	height:60px;
+}
+.yellow:hover, .red:hover, .orange:hover, .green:hover{
+	cursor:pointer;
+	border:2px solid black;
+}
+
+
+.yellow{
+	background:#FDFA4D;
+}
+.red{
+	background:#FE0915;
+}
+.orange{
+	background:#FD6422;
+}
+.green{
+	background:#93CA39;
+}
+
+.col{
+   display: inline-block;
+}
+
+.devComment{
+   width:100%;	
+}
+
+.tab_header td{
+   border-top:0;	
+}
+
+.pflicht{
+	color:red;
+}
 .message{
 	
 	position:fixed;

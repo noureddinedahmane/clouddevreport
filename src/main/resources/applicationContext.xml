@@ -13,55 +13,12 @@
    <property name="dao" ref="dao"></property>
  </bean>
  
- <!--  dependicies injection note module -->
- <bean id="daoNote" class="com.org.daoImp.ImpDaoNote"></bean>
- <bean id="metierNote" class="com.org.MetierImp.ImpMetierNote">
-   <property name="daoNote" ref="daoNote"></property>
- </bean>
- 
- <!--  dependicies injection task module -->
- <bean id="daoTask" class="com.org.daoImp.ImpDaoTask"></bean>
- <bean id="metierTask" class="com.org.MetierImp.ImpMetierTask">
-   <property name="daoTask" ref="daoTask"></property>
- </bean>
- 
-  <!--  dependicies injection Patient module -->
- <bean id="daoPatient" class="com.org.daoImp.ImpDaoPatient"></bean>
- <bean id="metierPatient" class="com.org.MetierImp.ImpMetierPatient">
-   <property name="daoPatient" ref="daoPatient"></property>
- </bean>
- 
- <!--  dependicies injection Calendar module -->
- <bean id="daoCalendar" class="com.org.daoImp.ImpDaoCalendar"></bean>
- <bean id="metierCalendar" class="com.org.MetierImp.ImpMetierCalendar">
-   <property name="daoCalendar" ref="daoCalendar"></property>
- </bean>
- 
- <!--  dependicies injection Message module -->
- <bean id="daoMessage" class="com.org.daoImp.ImpDaoMessage"></bean>
- <bean id="metierMessage" class="com.org.MetierImp.ImpMetierMessage">
-   <property name="daoMessage" ref="daoMessage"></property>
- </bean>
- 
-  <!--  dependicies injection ClientPage module -->
- <bean id="daoClientPage" class="com.org.daoImp.ImpDaoClientPage"></bean>
- <bean id="metierClientPage" class="com.org.MetierImp.ImpMetierClientPage">
-   <property name="daoClientPage" ref="daoClientPage"></property>
- </bean>
- 
- <!--  dependicies injection Regime  module -->
- <bean id="daoRegime" class="com.org.daoImp.ImpDaoRegime"></bean>
- <bean id="metierRegime" class="com.org.MetierImp.ImpMetierRegime">
-   <property name="daoRegime" ref="daoRegime"></property>
- </bean>
- 
- 
- 
+
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
      <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-     <property name="url" value="jdbc:mysql://localhost/nutriconsult"></property>
+     <property name="url" value="jdbc:mysql://localhost/DeviationReport2"></property>
      <property name="username" value="root"></property>
-     <property name="password" value=""></property>
+     <property name="password" value="alter6+"></property>
  </bean>
  
  <bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
@@ -74,6 +31,14 @@
     
     <property name="defaultDataSource" ref="dataSource"></property>
  </bean>
+ 
+ 
+  <!--  dependicies injection ion -->
+ <bean id="daoDeviation" class="com.org.daoImp.ImpDaoDeviationReport"></bean>
+ <bean id="metier" class="com.org.MetierImp.ImpMetierDeviationReport">
+   <property name="dao" ref="daoDeviation"></property>
+ </bean>
+ 
  
  
  <bean id="entityManagerFactory"  class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

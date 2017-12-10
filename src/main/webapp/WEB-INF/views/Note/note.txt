@@ -1,0 +1,4 @@
+1- The language in Account has to be boxlist
+2- In Account the gender attribute has to be added to the form
+3- To add a new User the choose of the domain should be validated
+4- dans le controlleur UserController--> get the list of roles choosed and add it to the user you wan tot save

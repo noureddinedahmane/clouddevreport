@@ -7,8 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.org.daoInter.IDaoClient;
+import com.org.entities.Account;
 import com.org.entities.Client;
-import com.org.entities.Profile;
+import com.org.entities.Domain;
 import com.org.entities.Role;
 
 public class ImpDaoClient implements IDaoClient{
@@ -91,25 +92,48 @@ public class ImpDaoClient implements IDaoClient{
 
 
 	@Override
-	public Profile addProfile(Profile profile, Client client) {
-		profile.setClient(client);
-		em.persist(profile);
-		
-		return profile;
+	public Account addAccont(Account account) {
+		em.persist(account);
+		return account;
 	}
 
 
 
 	@Override
-	public Profile updateProfile(Profile profile, Client client) {
-		if(client.equals(profile.getClient())){
-			profile.setClient(client);
-			em.merge(profile);
-			return profile;
-			
-		}else{
-			return null;
-		}
+	public Account getAccount(Long id) {
+		Account account = em.find(Account.class, id);
+		return account;
 	}
+
+
+
+	@Override
+	public Account updateAccount(Account account) {
+		// TODO Auto-generated method stub
+		if(account != null) {
+			em.merge(account);
+		}
+		return account;
+	}
+
+
+
+	@Override
+	public List<Client> listClientByAccount(Account account) {
+		Query req = em.createQuery("select c from Client c where c.account=:x");
+		req.setParameter("x", account);
+		return req.getResultList();
+	}
+
+
+
+	@Override
+	public List<Client> listUsersByDomain(Domain domain) {
+		Query req = em.createQuery("select c from Client c where c.domain=:x");
+		req.setParameter("x", domain);
+		return req.getResultList();
+	}
+
+
 
 }

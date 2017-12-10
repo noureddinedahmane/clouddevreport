@@ -1,4 +1,4 @@
- <!-- Main Footer -->
+<!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
@@ -8,81 +8,6 @@
     <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript::;">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript::;">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="pull-right-container">
-                  <span class="label label-danger pull-right">70%</span>
-                </span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-           <label><spring:message code="label.language"/></label>
-           <a href="?lang=en">EN</a>
-           <a href="?lang=de">DE</a>
-           <a href="<c:url value="?lang=fr"/>">FR</a>
-           
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
@@ -93,19 +18,79 @@
 
 <!-- jQuery 2.2.3 -->
 <script  src="<c:url value="/resources/plugins/jQuery/jquery-2.2.3.min.js"/>" ></script>
+
 <!-- Bootstrap 3.3.6 -->
 <script  src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>" ></script>
+
 <!-- AdminLTE App -->
 <script  src="<c:url value="/resources/dist/js/app.min.js"/>" ></script>
+
 <!-- CK Editor -->
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+
 <!-- DataTables -->
 <script  src="<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/>" ></script>
 <script  src="<c:url value="/resources/plugins/datatables/dataTables.bootstrap.min.js"/>" ></script>
+
+<!-- datetimepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+     
+ <script>
+ 
+   /* listing the notifications*/
+ function listNotifications(){
+	  $.ajax({
+		  url: "listNotReadNotifications",
+		  dataType: "json",
+		  success: function(data){
+			  executeNotifications(data);
+		  },
+		  error: function(error, status){
+			    console.log("error:" + status);
+			  }
+		});
+   }
+   
+   function executeNotifications(data){
+	   if(data.length != 0){
+		   var list="";
+		   $("#notification_numb").html(data.length);
+		   
+		   for(i=0;i<data.length;i++){
+			   list += "<li>" +
+                       "<a href='viewNotification?idNotification=" + data[i][0]+ "'>" + 
+                         "<h4>" + data[i][1] + "</h4>" +
+                         "<p>" + data[i][2]+ " " + data[i][3]  +"</p>" + 
+                       "</a>" + 
+                     "</li>";
+		   }
+		   
+		   $("#listNotification").html("");
+		   $("#listNotification").html(list);
+		   
+	   }
+	   
+   }
+   
+   
+   //calls
+   listNotifications();
+   
+   //list the notification every 5 second
+   
+   setInterval(function() {      
+	   listNotifications();	   
+    }, 5 * 1000);
+
+ </script>
+ 
+ 
 </body>
 </html>

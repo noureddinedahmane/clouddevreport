@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,6 +19,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 @Entity
 public class Client implements UserDetails,Serializable {
@@ -38,73 +41,90 @@ public class Client implements UserDetails,Serializable {
 	
 	private Date dateNaissance;
 	
-	private boolean enabled=true;
+	private boolean enabled = true;
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
-	private Profile profile;
+	private String position;
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
-	private ClientPage clientPage;
-	
-	@OneToMany(mappedBy="client")
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="client")
 	private List<Role> roles;
 	
+	@OneToMany(mappedBy="client")
+	List<Historical> historicals ;
+	 
+	
+	@ManyToOne
+	@JoinColumn(name="idDomain")
+	private Domain domain;
+	
+	@ManyToOne
+	@JoinColumn(name="idAccount")
+	private Account account;
+	
 	
 	@OneToMany(mappedBy="client")
-	private List<Note> notes;
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="client")
-	private List<Patient> patients;
+	List<UserApprovementGroup> userApprovementGroups ;
 	
 	@OneToMany(mappedBy="client")
-	private List<Task> tasks;
+	List<Approvement> approvements ;
 	
 	@OneToMany(mappedBy="client")
-	private List<Calendar> calendars;
+	List<Deviation> deviation ;
 	
+	@OneToMany(mappedBy="client")
+	List<Domain> domains ;
 	
+
 	
-	public Profile getProfile() {
-		return profile;
+	public List<Domain> getDomains() {
+		return domains;
 	}
-	public void setProfile(Profile profile) {
-		this.profile = profile;
+	public void setDomains(List<Domain> domains) {
+		this.domains = domains;
 	}
+	public Domain getDomain() {
+		return domain;
+	}
+	public void setDomain(Domain domain) {
+		this.domain = domain;
+	}
+	public List<Deviation> getDeviation() {
+		return deviation;
+	}
+	public void setDeviation(List<Deviation> deviation) {
+		this.deviation = deviation;
+	}
+	public List<Approvement> getApprovements() {
+		return approvements;
+	}
+	public void setApprovements(List<Approvement> approvements) {
+		this.approvements = approvements;
+	}
+	public List<UserApprovementGroup> getUserApprovementGroups() {
+		return userApprovementGroups;
+	}
+	public void setUserApprovementGroups(
+			List<UserApprovementGroup> userApprovementGroups) {
+		this.userApprovementGroups = userApprovementGroups;
+	}
+
 	public List<Role> getRoles() {
 		return roles;
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	public ClientPage getClientPage() {
-		return clientPage;
+	public List<Historical> getHistoricals() {
+		return historicals;
 	}
-	public void setClientPage(ClientPage clientPage) {
-		this.clientPage = clientPage;
+	public void setHistoricals(List<Historical> historicals) {
+		this.historicals = historicals;
 	}
-	public List<Calendar> getCalendars() {
-		return calendars;
+	public String getPosition() {
+		return position;
 	}
-	public void setCalendars(List<Calendar> calendars) {
-		this.calendars = calendars;
-	}
-	public List<Task> getTasks() {
-		return tasks;
-	}
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
-	}
-	public List<Patient> getPatients() {
-		return patients;
-	}
-	public void setPatients(List<Patient> patients) {
-		this.patients = patients;
-	}
-	public List<Note> getNotes() {
-		return notes;
-	}
-	public void setNotes(List<Note> notes) {
-		this.notes = notes;
+	public void setPosition(String position) {
+		this.position = position;
 	}
 	public boolean isEnabled() {
 		return enabled;
@@ -153,6 +173,13 @@ public class Client implements UserDetails,Serializable {
 	
 	
 	
+	
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	public Client() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -169,6 +196,18 @@ public class Client implements UserDetails,Serializable {
 		this.dateNaissance = dateNaissance;
 	}
 	
+	
+	public Client(String name, String prenom, String username, String password,
+			Date dateNaissance, boolean enabled, String position) {
+		super();
+		this.name = name;
+		this.prenom = prenom;
+		this.username = username;
+		this.password = password;
+		this.dateNaissance = dateNaissance;
+		this.enabled = enabled;
+		this.position = position;
+	}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
